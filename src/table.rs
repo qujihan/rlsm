@@ -84,6 +84,11 @@ impl FileObject {
 }
 
 /// An SSTable.
+/// -------------------------------------------------------------------------------------------------------
+/// |              Data Block             |             Meta Block              |          Extra          |
+/// -------------------------------------------------------------------------------------------------------
+/// | Data Block #1 | ... | Data Block #N | Meta Block #1 | ... | Meta Block #N | Meta Block Offset (u32) |
+/// -------------------------------------------------------------------------------------------------------
 pub struct SsTable {
     /// The actual storage unit of SsTable, the format is as above.
     pub(crate) file: FileObject,
